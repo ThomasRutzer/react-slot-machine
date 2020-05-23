@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  --slot-machine-highlight-color: red;
+}
+
+#app {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #f6f6f6;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 120px auto 120px;
+}
+
+button {
+  background-color: var(--slot-machine-highlight-color);
+  color: #f6f6f6;
+  font-size: 2rem;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+button[disabled] {
+  cursor: default;
+  opacity: 0.5;
+}
+
+.🤡 {
+  grid-row-start: 2
+}
+
+.🔦 {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--slot-machine-highlight-color);
+  color: transparent;
+  transition: color 700ms ease-out;
+}
+
+.🎉 {
+  font-size: 4rem;
+  grid-row-start: 1;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
+
+.🧱 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row-start: 3;
+}
+
+.💈 {
+  color: var(--slot-machine-highlight-color);
+}
