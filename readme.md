@@ -1,6 +1,6 @@
 # React Slot Machine
 
-![Examaple](https://raw.githubusercontent.com/ThomasRutzer/reacts-slot-machine/master/example/example.png)
+![Example](https://raw.githubusercontent.com/ThomasRutzer/react-slot-machine/master/example/example.png)
 [See live](https://thomasrutzer.github.io/404)
 
 
