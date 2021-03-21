@@ -234,36 +234,22 @@ var SlotMachine = function (_React$Component) {
     _this.slots = [_this.createSlot(_this.props.initialSymbols[0]), _this.createSlot(_this.props.initialSymbols[1]), _this.createSlot(_this.props.initialSymbols[2])];
 
     _this.prepareSlots(true);
-    _this.slotMachineRef = React.createRef();
     return _this;
   }
 
   createClass(SlotMachine, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var _this2 = this;
-
-      anime({
-        targets: this.slotMachineRef.current,
-        duration: 1200,
-        opacity: 1,
-        easing: 'easeInOutQuad',
-        complete: function complete() {
-          _this2.spin();
-        }
-      });
+      this.spin();
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       return React.createElement(
         'div',
-        {
-          style: 'opacity: 0',
-          ref: this.slotMachineRef,
-          className: slotMachineStyles.wrapper },
+        { className: slotMachineStyles.wrapper },
         React.createElement(
           'div',
           { className: slotMachineStyles.slotMachine },
@@ -271,12 +257,12 @@ var SlotMachine = function (_React$Component) {
             return React.createElement(Slot, {
               key: index,
               slotIndex: index,
-              spin: _this3.state.isSpinning,
+              spin: _this2.state.isSpinning,
               evaluate: function evaluate(slotIndex, symbol) {
-                return _this3.saveSingleResult(slotIndex, symbol);
+                return _this2.saveSingleResult(slotIndex, symbol);
               },
-              symbolDefaultStyleClass: _this3.props.symbolDefaultStyleClass,
-              symbolEvaluatedStyleClass: _this3.props.symbolEvaluatedStyleClass,
+              symbolDefaultStyleClass: _this2.props.symbolDefaultStyleClass,
+              symbolEvaluatedStyleClass: _this2.props.symbolEvaluatedStyleClass,
               symbols: slot.symbols });
           })
         )
@@ -301,10 +287,10 @@ var SlotMachine = function (_React$Component) {
   }, {
     key: 'broadcastResult',
     value: function broadcastResult() {
-      var _this4 = this;
+      var _this3 = this;
 
       var isJackpot = this.slots.every(function (slot) {
-        return slot.evaluation === _this4.slots[0].evaluation;
+        return slot.evaluation === _this3.slots[0].evaluation;
       });
 
       this.setState({ isSpinning: false, isJackpot: isJackpot });
@@ -314,12 +300,12 @@ var SlotMachine = function (_React$Component) {
   }, {
     key: 'prepareSlots',
     value: function prepareSlots(initital) {
-      var _this5 = this;
+      var _this4 = this;
 
       this.slots = this.slots.map(function (slot) {
         return _extends({}, slot, {
           evaluation: null,
-          symbols: !initital ? [].concat(toConsumableArray(slot.symbols.slice(slot.symbols.length - 3, slot.symbols.length)), toConsumableArray(fillByWithRandomElement(_this5.props.symbolsPerSlot - 1, _this5.props.symbols))) : [].concat(toConsumableArray(fillByWithRandomElement(_this5.props.symbolsPerSlot - 1, _this5.props.symbols)), toConsumableArray(slot.symbols.slice(slot.symbols.length - 3, slot.symbols.length)))
+          symbols: !initital ? [].concat(toConsumableArray(slot.symbols.slice(slot.symbols.length - 3, slot.symbols.length)), toConsumableArray(fillByWithRandomElement(_this4.props.symbolsPerSlot - 1, _this4.props.symbols))) : [].concat(toConsumableArray(fillByWithRandomElement(_this4.props.symbolsPerSlot - 1, _this4.props.symbols)), toConsumableArray(slot.symbols.slice(slot.symbols.length - 3, slot.symbols.length)))
         });
       });
     }
