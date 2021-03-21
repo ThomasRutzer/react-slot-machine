@@ -234,11 +234,6 @@ var SlotMachine = function (_React$Component) {
   }
 
   createClass(SlotMachine, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.spin();
-    }
-  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
