@@ -27,7 +27,6 @@ export default class SlotMachine extends React.Component {
     anime({
       targets: this.slotMachineRef.current,
       duration: 1200,
-      opacity: 1,
       easing: 'easeInOutQuad',
       complete: () => {
         this.spin()
@@ -38,7 +37,6 @@ export default class SlotMachine extends React.Component {
   render() {
     return (
       <div
-        style='opacity: 0'
         ref={this.slotMachineRef}
         className={slotMachineStyles.wrapper}>
         <div className={slotMachineStyles.slotMachine}>
