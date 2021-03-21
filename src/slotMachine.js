@@ -1,5 +1,4 @@
 import React from 'react'
-import anime from 'animejs'
 import Slot from './slot'
 import * as utils from './utils'
 import slotMachineStyles from './slotMachine.module.scss'
@@ -20,25 +19,15 @@ export default class SlotMachine extends React.Component {
     ]
 
     this.prepareSlots(true)
-    this.slotMachineRef = React.createRef()
   }
 
   componentDidMount() {
-    anime({
-      targets: this.slotMachineRef.current,
-      duration: 1200,
-      easing: 'easeInOutQuad',
-      complete: () => {
-        this.spin()
-      }
-    })
+    this.spin()
   }
 
   render() {
     return (
-      <div
-        ref={this.slotMachineRef}
-        className={slotMachineStyles.wrapper}>
+      <div className={slotMachineStyles.wrapper}>
         <div className={slotMachineStyles.slotMachine}>
           { this.slots.map((slot, index) =>
             <Slot
