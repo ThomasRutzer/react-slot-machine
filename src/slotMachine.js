@@ -21,10 +21,6 @@ export default class SlotMachine extends React.Component {
     this.prepareSlots(true)
   }
 
-  componentDidMount() {
-    this.spin()
-  }
-
   render() {
     return (
       <div className={slotMachineStyles.wrapper}>
